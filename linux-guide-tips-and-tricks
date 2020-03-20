@@ -1,0 +1,108 @@
+$        - Indicates you are a standard user. 
+~        - Indicates you are in the home directory.
+ls       - (l)ist (s)torage.
+pwd      - (p)rint (w)ork (d)irectory.
+cd       - (c)hange (d)irectory.
+.        - Current directory.
+..       - Previous directory.
+~        - Alias to home directory.
+pushd    - Move to new directory, but it will save the previous directory in the stack to allow go back to the previous directory.
+popd     - Move back to the previous directory used by "pushd" command.
+file     - Print the metadata of a given file.
+locate   - Find a file location into the disk by the given name, the name can be the full name or partial name.
+updatedb - Update dabase that is used to persist indexed OS files, it's used for commands like "locate" and others.
+which    - Show the path of a given command i.e: "which python"
+history  - Show the latest 1000 commands typed on the bash.
+man      - Will show the "manual" documentation for the given command.
+whatis   - Will show a shorter descriptions what the given command does.
+apropos  - Show a list of commands related with the given word parameter i.e: "apropos directory".
+mkdir    - Create one or more new directories.
+rmdir    - Remove one or more directories.
+touch    - Create a new file if it does not exists or update the "last updated" attribute of the given file.
+cp       - Copy a file or directory to another place.
+mv       - Move a file or directory to another place or rename the file if any new path is given.
+rm       - Remove a file or directory.
+cat      - Show all the content of one or more given files.
+echo     - Print the given text i.e (echo "Hello word!").
+>        - Move the output of a previous command to a text file, every time this "command" will truncate the file i.e (echo "Hi" > hi.txt).
+>>       - Move the output of a previous command to a text file, every time this "command" will append the content in the end of the file.
+more     - Show the content of a given file on demand, but it's old and don't allow navigation.
+less     - Show the content of a given file on demand, it's new and allow forward and backward navigation and other features.
+|        - Pipe is behavior that allows a output of a command will be the input of another command i.e "history | less".
+Ctrl+z   - Stop the current process in background.
+Ctrl+c   - Kill the current process.
+Ctrl+d   - It's exit the current session, like a new user session or a virtual terminal like python virtualenv.
+exit     - Just close terminal or a user session and go out.
+bg       - (b)ack (g)round, make the current program become a suspended job in background.
+fg       - (f)ore(g)round, make the background process bring to the screen again and become the current program.
+jobs     - List all stopped or suspended jobs in background.
+killall  - Kill a process by name i.e: "killall firefox".
+kill     - kill a process by sending a sign using PID i.e: "kill 12345" where 12345 is the process PID, -15 is to waiting the process ends his execution, -9 force stop in the process.
+watch    - Execute a program periodically, showing output fullscreen, i.e: "watch free -h".
+grep     - Print lines matching a pattern i.e: "grep rafael /etc/passwd".
+
+
+Text editors:
+
+vi       - Linux text editor.
+vim      - Vi improved text editor.
+nano     - Another text editor.
+
+
+Host metrics:
+
+du       - Estimate file space usage i.e: "du -h" where "-h" means "human-readable". 
+df       - Report file system disk space usage i.e: "df -h" where "-h" means "human-readable".
+free     - Display the amount of free and used memory in the system i.e: "free -h" means human-readable.
+top      - Show linux process and host metrics like CPU and memory i.e: "top", you can use the bellow commands:
+              "s" - To change the refresh timein the screen.
+              "i" - To hide the iddle process and just show the active ones.
+              "f" - To change the display fields.
+              "k" - To kill a process by it's PID.
+              "u" - To show the process list of a given user.
+              "o" - To filter a process by his column and name.
+
+
+Permissions:
+
+user group everyone
+rwx   rwx    rwx
+|||   |||    |||
+421   421    421 (bits)
+\|/   \|/    \|/
+ 7     7      7
+
+chmod    - (Ch)ange (mod)e command, used to change acess rights for each file into the system, ie: "chmod 755 myfile"
+              The most used permissions are:
+                 644 - Owner can read and write, group can read only, others can read only.
+                 755 - Owner can read, write, and execute, group members and other users can read and execute, but cannot write.
+                 777 - Everyone can read, write and execute (not recommended).
+chown    - (Ch)ange (own)ership command, used to change ownership (user:group) of files and directories i.e: "chown user:group myfile".
+
+
+Users and Groups
+
+sudo     - Allow standard user to execute some action as admin user previligies, (su)per user (do) i.e "sudo apt-get update".
+su -     - Change the standard user to the given user loading all settings and configuration of the given user, if any user is given then the root will be loaded, when it happens the console will print the "#" character, and the root directory "/" will be loaded.
+users    - Show the current users logged in the system.
+id       - Show all the information about your account.
+adduser  - Add new user in the system.
+passwd   - Change a password for a given user.
+chfn     - Change the user profile.
+usermod  - Modify a user account like lock or unlock a specific user.
+deluser  - Remove a user from the system.
+addgroup - Add new group in the system.
+delgroup - Remove a group from the system.
+
+/etc/passwd - All the users profile information is in this file.
+/etc/group  - All the groups information is in this file.
+
+
+System services control:
+
+service   - Run a System V init script to control the programs that are running or to define a program to run as a daemon every time the system starts.
+systemd   - Systemd system and service manager, the modern version to manager and boostrap programs.
+systemctl - Control de systemd system and the service manager, allows to (start/stop/status) and (able/disable) programs as a daemons.
+
+
+POSIX - Defines a common interface between the diferent flavors of linux and unix based system to guarantee those flavors have the same behaviour.
