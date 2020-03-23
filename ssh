@@ -1,0 +1,33 @@
+SSH - (S)ecure (SH)ell - Cryptographic Network Protocol
+
+Used to access remote servers in a security way, the previous technique to do that was "telnet",
+"telnet" was used to access remote servers, but all the data exchanged between client and server was
+in plain text, in other words very INSECURE.
+
+
+Symmetric encryption:
+    Use a FUNCTION and a PRIVATE KEY
+
+    One function that encrypt and decrypt data, but the function and the KEY need to be shared between the two parts,
+    the client and the server, the problem is how to share the function and the KEY over the internet
+    basically, this procedure is very insecure.
+
+
+Asymmetric encryption:
+    Use two FUNCTIONS and a pair of keys, PUBLIC KEY and PRIVATE KEY.
+    The first function use the PUBLIC KEY to encrypt the data.
+    The second functon use the PRIVATE KEY to decrypt the data.
+
+    We share the PUBLIC KEY with everyone that we want to communicate, but the PRIVATE KEY as the name says is private.
+
+
+How the flow works:
+    1 - Client (A) request access to server (B) sending his PUBLIC KEY to the server verify or add in "known hosts".
+    2 - The server (B) generate a TOP SECRET KEY and after that the server encrypt this TOP SECRET KEY with the client's 
+        PUBLIC KEY and send back to the client.
+    3 - The client decrypt the TOP SECRET KEY using his PRIVATE KEY because the server TOP SECRET KEY was encrypted using 
+        the client PUBLIC KEY, after decrypt the TOP SECRET KEY the client send it to the server, the server then can verify
+        the client identity and agree with the connection.
+    4 - After that the SSH system creates a tunnel between the client and the server and the encrypted data can be pass through this tunnel.
+        
+
