@@ -37,9 +37,13 @@ bg       - (b)ack (g)round, make the current program become a suspended job in b
 fg       - (f)ore(g)round, make the background process bring to the screen again and become the current program.
 jobs     - List all stopped or suspended jobs in background.
 killall  - Kill a process by name i.e: "killall firefox".
-kill     - kill a process by sending a sign using PID i.e: "kill 12345" where 12345 is the process PID, -15 is to waiting the process ends his execution, -9 force stop in the process.
+kill     - kill a process by sending a sign using PID i.e: "kill 12345" where 12345 is the process PID, -15 is to waiting the process
+           ends his execution, -9 force stop in the process.
 watch    - Execute a program periodically, showing output fullscreen, i.e: "watch free -h".
 grep     - Print lines matching a pattern i.e: "grep rafael /etc/passwd".
+sed      - (s)tream (ed)itor for filtering and transforming text, i.e: "sed 's/unix/linux/gI' os.txt" will replace "unix" by "linux",
+           the "g" flag means "global", that is the whole file will be considered, "I" flag means "case insensitive", a new file will
+           be printed in the stdout and the current file will not be changed, to change the current file the flag "-i" is necessary.
 
 
 Text editors:
