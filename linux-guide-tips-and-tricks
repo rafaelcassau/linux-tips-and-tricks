@@ -9,8 +9,9 @@ cd       - (c)hange (d)irectory.
 pushd    - Move to new directory, but it will save the previous directory in the stack to allow go back to the previous directory.
 popd     - Move back to the previous directory used by "pushd" command.
 file     - Print the metadata of a given file.
-locate   - Find a file location into the disk by the given name, the name can be the full name or partial name.
+locate   - Find a file location into the disk by the given name, the name can be the full name or partial name, the search will be done based on an index.
 updatedb - Update dabase that is used to persist indexed OS files, it's used for commands like "locate" and others.
+find     - Find a file location into the disk, the find will be done in real time, Ex: "find ~/ -name '*new*'".
 which    - Show the path of a given command i.e: "which python"
 history  - Show the latest 1000 commands typed on the bash.
 man      - Will show the "manual" documentation for the given command.
@@ -44,6 +45,11 @@ grep     - Print lines matching a pattern i.e: "grep rafael /etc/passwd".
 sed      - (s)tream (ed)itor for filtering and transforming text, i.e: "sed 's/unix/linux/gI' os.txt" will replace "unix" by "linux",
            the "g" flag means "global", that is the whole file will be considered, "I" flag means "case insensitive", a new file will
            be printed in the stdout and the current file will not be changed, to change the current file the flag "-i" is necessary.
+sort     - Ordering a file lines by alphanumerical order, if you want to reverse the order use "-r" option,
+           to ordering by numerical values use "-n" option.
+diff     - Print the difference between two files, Ex: "diff file1 file2" will print the difference file1 comparing with file2,
+           the default option print a human readable output, but programmers use "-u" option more often because this output is used by other
+           automated tools.
 
 
 Text editors:
