@@ -14,7 +14,9 @@ updatedb - Update dabase that is used to persist indexed OS files, it's used for
 find     - Find a file location into the disk, the find will be done in real time, Ex: "find ~/ -name '*new*'".
 which    - Show the path of a given command i.e: "which python"
 history  - Show the latest 1000 commands typed on the bash.
-man      - Will show the "manual" documentation for the given command.
+man      - Will show the "manual" documentation for the given command, if you don't remember the full command name you can use "man -k <command-name>"
+           to find similar commands with the given partial command name.
+info     - A new way to show the manual of the given command, it's like a "man" but it's a new version and probaly better than "man".
 whatis   - Will show a shorter descriptions what the given command does.
 apropos  - Show a list of commands related with the given word parameter i.e: "apropos directory".
 mkdir    - Create one or more new directories.
@@ -50,6 +52,10 @@ sort     - Ordering a file lines by alphanumerical order, if you want to reverse
 diff     - Print the difference between two files, Ex: "diff file1 file2" will print the difference file1 comparing with file2,
            the default option print a human readable output, but programmers use "-u" option more often because this output is used by other
            automated tools.
+export   - Turn a shell variable in an environment variable, the main difference is that a shell variable exists only in the shell session
+           can be accessed only in this scope, a environment variable is passed as a parameter for the programs executed with the shell,
+           and a lot of these programs read some environment variables as options, example: export MYVAR.
+
 
 
 Text editors:
@@ -116,3 +122,36 @@ systemctl - Control de systemd system and the service manager, allows to (start/
 
 
 POSIX - Defines a common interface between the diferent flavors of linux and unix based system to guarantee those flavors have the same behaviour.
+
+
+PATH - PATH is a special environment variable that contains the command path (or path for short). A command path is a list of system directories
+       that the shell searches when trying to locate a command, For example, when you run "ls", the shell searches the directories listed in PATH
+       for the "ls" program. If programs with the same name appear in several directories in the path, the shell runs the first matching program.
+       If you run "echo $PATH", you'll se that the path components are separated by colons ":", for example: 
+       
+       "/usr/local/bin:/usr/bin:/bin"
+
+       Setting a new path at the beginning: 
+       
+            PATH=/my/custom/dir:$PATH
+
+       Setting a new path at the end:
+
+            PATH=$PATH:/my/custom/dir
+
+
+Standard Input and Standard Output
+
+By default the Unix programs works as stream of texts, there are a default input stream "stdin" and two default outputs streams, the first one is "stdout"
+and the second one is "stderr"
+
+stdin -> Is refered as a "0" file descriptor and works as default input of a linux program, ex: "ls -la | grep .git",
+         in this example the "stdin" of grep will receive the "stdout" of "ls -la"
+
+stdout -> Is refered as a "1" file descriptor and works as default output of a linux program when it works as expected, ex: "ls -la > my-files",
+          in this example the "stdout" of "ls -la" is redirect to a file instead of a default terminal output.
+
+stderr -> Is refered as a "2" file descriptor and works as default error output of a linux program when something goes wrong, ex:
+          "ls -la /invalid-dir/ > my-files 2> errors", in this example the success "stdout" will be redirect to file "my-files"
+          and the error outputs to file "errors", if "2> errors" isn't given then the errors will be printed in the terminal.
+          It's possible to redirect both the standard input and the standard output to the same file, ex: "ls -la /invalid-dir/ > my-files 2>&1"
