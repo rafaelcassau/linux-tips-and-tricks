@@ -1,6 +1,10 @@
 $        - Indicates you are a standard user. 
 ~        - Indicates you are in the home directory.
-ls       - (l)ist (s)torage.
+ls       - (l)ist (s)torage, you can use "ls -l" to view a long list, the first column means filetype:user:group:other permissions
+           the most common file types are:
+               "-" means a simple file
+               "d" means a directory
+               "l" means a symbolic link
 pwd      - (p)rint (w)ork (d)irectory.
 cd       - (c)hange (d)irectory.
 .        - Current directory.
@@ -55,7 +59,10 @@ diff     - Print the difference between two files, Ex: "diff file1 file2" will p
 export   - Turn a shell variable in an environment variable, the main difference is that a shell variable exists only in the shell session
            can be accessed only in this scope, a environment variable is passed as a parameter for the programs executed with the shell,
            and a lot of these programs read some environment variables as options, example: export MYVAR.
-
+ln       - Create a link, there are two types of link, the symbolic one and the hard one, the most common os the symbolic one that means you
+           point a name to a directory or file, to create a symbolic link you need to use "-s" option ex: "ln -s target linkname", every time
+           you try access "linkname" you will be redirect to "target", real world example: "ln -s /home/my-user/bin /bin" every time you access
+           "/bin" you'll be redirect to "/home/myuser/bin".
 
 
 Text editors:
@@ -90,9 +97,17 @@ rwx   rwx    rwx
 
 chmod    - (Ch)ange (mod)e command, used to change acess rights for each file into the system, ie: "chmod 755 myfile"
               The most used permissions are:
-                 644 - Owner can read and write, group can read only, others can read only.
-                 755 - Owner can read, write, and execute, group members and other users can read and execute, but cannot write.
-                 777 - Everyone can read, write and execute (not recommended).
+                644 - Owner can read and write, group can read only, others can read only.
+                755 - Owner can read, write, and execute, group members and other users can read and execute, but cannot write.
+                777 - Everyone can read, write and execute (not recommended).
+
+           (u) - Means (u)ser permission. Ex: "chmod u+r file"
+           (g) - Means (g)roup permission. Ex: "chmod g+r file"
+           (o) - Means (o)ther permission. Ex: "chmod o+r file"
+           (a) - Means (a)ll of users permission. "chmod a+r file"
+           
+           You can join more than one kind of permission type and permission bit: Ex: ""
+
 chown    - (Ch)ange (own)ership command, used to change ownership (user:group) of files and directories i.e: "chown user:group myfile".
 
 
